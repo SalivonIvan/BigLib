@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/security
+http://www.springframework.org/schema/security/spring-security.xsd">
+    
+    <http>
+       
+        <intercept-url pattern="/calculator" access="hasRole('USER')"/>
+        <form-login login-page="/index" username-parameter="inputEmail" password-parameter="inputPassword"
+                    login-processing-url="/login" authentication-failure-url="/error?error=true"
+                    default-target-url="/calculator"/>
+        <logout  success-handler-ref="customLogoutSuccessHandler" logout-url="/logout" />
+        
+    </http>
+    
+    <authentication-manager>
+        <authentication-provider>
+            <user-service properties="/WEB-INF/properties/userinfo.properties" />
+            <!--
+               <user-service>
+               <user name="salivon_ivan@ukr.net" password="1111" authorities="ROLE_USER" />
+               <user name="admin@ua" password="admin" authorities="ROLE_USER,ROLE_ADMIN" />
+               </user-service>
+            -->
+        </authentication-provider>
+    </authentication-manager>
+ 
+    
+</beans:beans>

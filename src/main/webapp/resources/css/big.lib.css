@@ -1,0 +1,91 @@
+header{
+    height: auto;
+    /*background-image: url(../image/calyx_4.jpg);*/
+    background-repeat: no-repeat; 
+    background-size:  cover;
+    /*background-color: #269abc;*/
+    /*padding-top: 5px;*/
+    /*padding-bottom: 5px;*/
+
+}
+html, body{
+    height: 100%;
+    background-color: #eee;
+}
+main{
+    min-height: 100%;
+}
+.logo-title{
+    /*margin-top: 20px;*/
+    font-family: fantasy;
+    font-size: 600%;
+}
+header img{
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.nav>li>a:hover{
+    background-color:#bce8f1;
+
+}
+.nav>li>a{
+    color:black;
+
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: black;
+}
+.navbar-nav>li:hover{
+    background-color:#bce8f1;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+.form-signin .checkbox {
+    font-weight: normal;
+}
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.list-book {
+    /*background-color: #D9EDF7;*/
+    
+    /*border-bottom-style: outset;*/
+}
+.footer {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    padding-top: 20px;
+    /*    background-color: #0F2105;*/
+}
+
