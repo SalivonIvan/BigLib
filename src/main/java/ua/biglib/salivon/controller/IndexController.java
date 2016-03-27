@@ -22,15 +22,16 @@ public class IndexController {
 
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public String loadFormSignup(Model model) {
-        model.addAttribute(new Customer());
+        model.addAttribute("customer",new Customer());
         log.info("create new Customer");
         return "signup";
     }
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String performSignup(@Valid Customer customer,BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
+        if (!bindingResult.hasErrors()) {
             return "signup";
         }
+        log.info(customer.getFullName());
         log.info("save new Customer");
         return "redirect:/index";
     }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ua.biglib.salivon.repositoriy;
 
 import java.io.Serializable;
@@ -18,10 +13,6 @@ import ua.biglib.salivon.entity.Book;
 import ua.biglib.salivon.entity.Cart;
 import ua.biglib.salivon.repositoriy.exceptions.NonexistentEntityException;
 
-/**
- *
- * @author Salivon Ivan
- */
 public class CartJpaController implements Serializable {
 
     public CartJpaController(EntityManagerFactory emf) {
@@ -193,5 +184,5 @@ public class CartJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

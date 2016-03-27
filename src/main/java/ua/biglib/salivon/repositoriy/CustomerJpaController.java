@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ua.biglib.salivon.repositoriy;
 
 import java.io.Serializable;
@@ -20,10 +15,6 @@ import ua.biglib.salivon.entity.Customer;
 import ua.biglib.salivon.repositoriy.exceptions.IllegalOrphanException;
 import ua.biglib.salivon.repositoriy.exceptions.NonexistentEntityException;
 
-/**
- *
- * @author Salivon Ivan
- */
 public class CustomerJpaController implements Serializable {
 
     public CustomerJpaController(EntityManagerFactory emf) {
@@ -200,5 +191,5 @@ public class CustomerJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

@@ -6,18 +6,20 @@
         <div class="container-fluid">
             <form:form modelAttribute="customer" class="form-signin" role="form" action="signup" method="post">
                 <h2 class="form-signin-heading">Sign in</h2>
-                <label for="inputName" class="sr-only">Full Name</label>
-                <input type="text" name="inputName" id="inputName" class="form-control" placeholder="Full Name" required autofocus>
+                <form:label path="fullName" cssClass="sr-only">Full Name</form:label>
+                <form:input path="fullName" cssClass="form-control" cssErrorClass="bg-warning" placeholder="Full Name"  />
+                <form:errors path="fullName" />
                 <br>
-                <label for="inputEmail" class="sr-only">Email</label>
-                <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+                <form:label path="email" cssClass="sr-only">Full Name</form:label>
+                <form:input path="email" cssClass="form-control" cssErrorClass="bg-warning" placeholder="Email"  />
+                <form:errors path="email" />
                 <br>
-                <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
-
-                <label for="inputPasswordRe" class="sr-only">Password</label>
-                <input type="password" name="inputPasswordRe" id="inputPasswordRe" class="form-control" placeholder="Re-enter password" required autofocus>
-
+                <form:label path="password" cssClass="sr-only">Full Name</form:label>
+                <form:password path="password" cssClass="form-control" cssErrorClass="bg-warning" placeholder="Password" />
+                <form:errors path="password" />
+                <form:label path="password" cssClass="sr-only">Full Name</form:label>
+                <form:password path="password" cssClass="form-control" cssErrorClass="bg-warning" placeholder="Re-password" />
+                <form:errors path="password" />
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign me up!</button>
             </form:form>
