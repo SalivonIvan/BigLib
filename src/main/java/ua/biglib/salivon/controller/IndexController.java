@@ -8,7 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import ua.biglib.salivon.bean.Customer;
+import org.springframework.web.servlet.ModelAndView;
+import ua.biglib.salivon.entity.Customer;
+
+
+
 
 @Controller
 public class IndexController {
@@ -22,18 +26,24 @@ public class IndexController {
 
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public String loadFormSignup(Model model) {
-        model.addAttribute("customer",new Customer());
+        model.addAttribute("customer", new Customer());
         log.info("create new Customer");
         return "signup";
     }
+
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String performSignup(@Valid Customer customer,BindingResult bindingResult) {
-        if (!bindingResult.hasErrors()) {
-            return "signup";
+    public ModelAndView performSignup(@Valid Customer customer, BindingResult bindingResult) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("customer", customer);
+        log.info(bindingResult);
+        if (bindingResult.hasErrors()) {
+            modelAndView.setViewName("signup");
+            return modelAndView;
         }
         log.info(customer.getFullName());
         log.info("save new Customer");
-        return "redirect:/index";
+        modelAndView.setViewName("redirect:/index");
+        return modelAndView;
     }
 
     @RequestMapping(value = "/login")
