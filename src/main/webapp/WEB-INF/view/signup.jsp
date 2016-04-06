@@ -20,7 +20,11 @@
                 <form:label path="password" cssClass="sr-only">Re-password</form:label>
                 <form:password path="password" cssClass="form-control form-control-signin" placeholder="Re-password" />
                 <form:errors path="password" cssClass="text-danger" />
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                <input type="text" name="rePassword" id="rePassword" class="form-control form-control-signin" placeholder="Re-password">
+                <div class="${visibility}">
+                    <span id="rePassword.errors"  class="text-danger">Passwords must match</span>
+                </div>
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign me up!</button>
             </form:form>
         </div>
