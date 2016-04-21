@@ -6,7 +6,7 @@ public class RePasswordService {
 
     public boolean compare(Customer customer, String rePassword) {
         String password = customer.getPassword();
-        if (password == rePassword) {
+        if (password.equalsIgnoreCase(rePassword)) {
             return true;
         }
         return false;

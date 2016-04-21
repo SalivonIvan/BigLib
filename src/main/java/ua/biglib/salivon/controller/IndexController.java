@@ -31,26 +31,29 @@ public class IndexController {
     public String loadFormSignup(Model model) {
         model.addAttribute("customer", new Customer());
         model.addAttribute("visibility", "hidden");
-        log.info("create new Customer");
+        log.info("PreCreate new Customer");
         return "signup";
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public ModelAndView performSignup(@Valid Customer customer,
-           BindingResult bindingResult) {
+           BindingResult bindingResult, @RequestParam String rePassword) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("customer", customer);
         log.info(bindingResult);
+        log.info("RePassword - "+rePassword);
+        log.info(rePassword.getClass());
         if (bindingResult.hasErrors()) {
+            modelAndView.addObject("visibility", "hidden");
             modelAndView.setViewName("signup");
             return modelAndView;
         }
-//        if (new RePasswordService().compare(customer, rePassword)) {
-//            modelAndView.addObject("visibility", "show");
-//            modelAndView.setViewName("signup");
-//            return modelAndView;
-//        }
-        log.info(customer.getFullName());
+        if (!new RePasswordService().compare(customer, rePassword)) {
+            modelAndView.addObject("visibility", "show");
+            modelAndView.setViewName("signup");
+            return modelAndView;
+        }
+        log.info("Full Name - "+customer.getFullName());
         log.info("save new Customer");
         modelAndView.setViewName("redirect:/index");
         return modelAndView;
