@@ -11,12 +11,18 @@ import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import ua.biglib.salivon.entity.Customer;
 import ua.biglib.salivon.repositoriy.exceptions.IllegalOrphanException;
 import ua.biglib.salivon.repositoriy.exceptions.NonexistentEntityException;
 
+@Service(value = "customerJpaController")
+@Repository
 public class CustomerJpaController implements Serializable {
 
+    @Autowired
     public CustomerJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
